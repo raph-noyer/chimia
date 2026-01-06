@@ -32,7 +32,12 @@ def load_model():
 model = load_model()
 
 # --- FONCTIONS UTILITAIRES (Celles de ton Colab) ---
-def get_fingerprint(mol):
+# AVANT (Ce qui plante) :
+# def get_fingerprint(mol):
+
+# APRÈS (La correction) :
+def get_fingerprint(mol, atomId=-1):
+    # RDKit a besoin de cet argument 'atomId', même si on ne l'utilise pas ici.
     return AllChem.GetMorganFingerprintAsBitVect(mol, radius=2, nBits=2048)
 
 def get_proba(fp):
